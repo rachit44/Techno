@@ -20,7 +20,7 @@ def register(request):
         form = Register(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/login/')
+            return HttpResponse("Thank you, You are registered now")
     else:
         form= Register()
     return render(request, 'Register.html',{'form':form})
