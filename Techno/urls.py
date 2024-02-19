@@ -20,6 +20,8 @@ from TechnoCoder import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.login),
-    path('register/', views.register, name='register')
+    path('login/', views.login_page,name = 'login'),
+    path('register/', views.register, name='register'),
+    path('',views.home, name='home'),
+    path('<str:username>',views.home_logged_in, name='userHome'),
 ]
