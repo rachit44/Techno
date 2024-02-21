@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        /* Basic CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+            color: #3a3939;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            float: right;
+            padding: 10px;
+        }
+
+        .one {
+            background-image: url('media/user.avif');
+        }
+
+        .streaks-container {
+            box-sizing: border-box;
+            border: 5px #f7f8fa;
+            background-color: #f8bc83;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            float: right;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        #p1 {
+            margin: 5px;
+            float: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3 style="text-align: center;">Welcome to My dashboard</h3>
+            <div class="image one"></div>
+            <p id="p1"> Hello, {{request.user.first_name}}! </p>
+        
+        <span class="streaks-container">&#128293; Streaks </span>
+
+    </header>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

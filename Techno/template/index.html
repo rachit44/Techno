@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Certificates and Courses</h2>
+    <ul>
+        {% for i in certificates %}
+        <li>{{i|safe}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
