@@ -22,7 +22,7 @@ class Course(BaseModel):
                 ('level2','Intermediate'),
                 ('level3','Practitioner'),
                 ('level4','Expert'))
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100,unique=True)
     image = models.ImageField(upload_to='course_images/')
     proficiency = models.CharField(max_length=20, choices=CHOICES,default='level1')
     category= models.CharField(max_length=50,default='Cloud')
@@ -49,15 +49,20 @@ class UserProfile(BaseModel):
 
 class Questions(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, blank=True)
-    text = models.TextField(max_length=400,default='')
+    question = models.TextField(max_length=400,default='')
     snippet = models.TextField(max_length=500,default='',null=True, blank=True)
+    choice1 = models.TextField(max_length=500,default='')
+    choice2 = models.TextField(max_length=500,default='')
+    choice3 = models.TextField(max_length=500,default='')
+    choice4 = models.TextField(max_length=500,default='')
+    correctChoice = models.TextField(max_length=500,default='')
     def __str__(self):
         return self.text[:100] + " " + "=>" + self.course.title
          
-
-class Choice(models.Model):
-    question = models.ForeignKey(Questions, on_delete=models.CASCADE, null=True, blank=True)
-    text = models.TextField(max_length=100,default='')
-    is_correct = models.BooleanField(default=False)
+class UserAnswers(models.Model):
+    user=models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, blank=True)
+    question = models.TextField(max_length=400,default='')
+    selected = models.TextField(max_length=500,default='')
     def __str__(self):
-        return self.text
+        return selected

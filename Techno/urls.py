@@ -25,7 +25,8 @@ urlpatterns = [
     path('profile/',views.profile,name='profile'),
     path('login/', views.login_page,name = 'login'),
     path('register/', views.register, name='register'),
-    path('',views.home, name='home'),
+    path('home/<str:username>',views.home, name='home'),
     path('streaks/',views.calculate_login_streak, name='streak'),
     path('password_reset/', views.password_reset, name='password_reset'),
+    path('importCSV',views.importCSV),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

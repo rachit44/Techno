@@ -6,4 +6,3 @@ from TechnoCoder.models import *
 admin.site.register(UserProfile)
 admin.site.register(Course)
 admin.site.register(Questions)
-admin.site.register(Choice)
