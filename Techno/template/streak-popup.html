@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streak Popup</title>
+    <link rel="stylesheet" type="text/css" href="style-streaks.css">
+</head>
+<body>
+    <div class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Your Streak Calendar</h2>
+            <div class="calendar">
+                <!-- Calendar Days -->
+                <div class="day active">1</div>
+                <div class="day"></div>
+                <!-- Add more days as needed -->
+                <!-- Example: <div class="day active"><span>2</span><i class="fas fa-fire"></i></div> -->
+            </div>
+            <p>Your streak: <span id="streakValue">{{ streak }}</span></p>
+        </div>
+    </div>
+    <script src="strek_popup.js"></script>
+</body>
+</html>
